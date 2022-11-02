@@ -10,18 +10,30 @@ public class Main {
     @SerializedName("temp")
     @Expose
     private Double temp;
-    @SerializedName("pressure")
+    @SerializedName("feels_like")
     @Expose
-    private Integer pressure;
-    @SerializedName("humidity")
-    @Expose
-    private Integer humidity;
+    private Double feelsLike;
     @SerializedName("temp_min")
     @Expose
     private Double tempMin;
     @SerializedName("temp_max")
     @Expose
     private Double tempMax;
+    @SerializedName("pressure")
+    @Expose
+    private Integer pressure;
+    @SerializedName("sea_level")
+    @Expose
+    private Integer seaLevel;
+    @SerializedName("grnd_level")
+    @Expose
+    private Integer grndLevel;
+    @SerializedName("humidity")
+    @Expose
+    private Integer humidity;
+    @SerializedName("temp_kf")
+    @Expose
+    private Integer tempKf;
 
     public Double getTemp() {
         return temp;
@@ -31,20 +43,12 @@ public class Main {
         this.temp = temp;
     }
 
-    public Integer getPressure() {
-        return pressure;
+    public Double getFeelsLike() {
+        return feelsLike;
     }
 
-    public void setPressure(Integer pressure) {
-        this.pressure = pressure;
-    }
-
-    public Integer getHumidity() {
-        return humidity;
-    }
-
-    public void setHumidity(Integer humidity) {
-        this.humidity = humidity;
+    public void setFeelsLike(Double feelsLike) {
+        this.feelsLike = feelsLike;
     }
 
     public Double getTempMin() {
@@ -63,5 +67,43 @@ public class Main {
         this.tempMax = tempMax;
     }
 
+    public Integer getPressure() {
+        return pressure;
+    }
 
+    public void setPressure(Integer pressure) {
+        this.pressure = pressure;
+    }
+
+    public Integer getSeaLevel() {
+        return seaLevel;
+    }
+
+    public void setSeaLevel(Integer seaLevel) {
+        this.seaLevel = seaLevel;
+    }
+
+    public Integer getGrndLevel() {
+        return grndLevel;
+    }
+
+    public void setGrndLevel(Integer grndLevel) {
+        this.grndLevel = grndLevel;
+    }
+
+    public Integer getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(Integer humidity) {
+        this.humidity = humidity;
+    }
+
+    public Integer getTempKf() {
+        return tempKf;
+    }
+
+    public void setTempKf(Integer tempKf) {
+        this.tempKf = tempKf;
+    }
 }

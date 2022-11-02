@@ -13,10 +13,10 @@ import cafsoft.foundation.HTTPURLResponse;
 import cafsoft.foundation.URLSession;
 
 
-public class Weather5DaysInMadridService {
+public class WeatherFiveDaysService {
 
 
-    public Weather5DaysInMadridService() {
+    public WeatherFiveDaysService() {
     }
 
     public void requestWeatherData(OnDataResponse delegate) {

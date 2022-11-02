@@ -13,9 +13,9 @@ import cafsoft.foundation.URLQueryItem;
 import cafsoft.foundation.URLSession;
 
 
-public class WeatherCityService {
+public class WeatherOneDayService {
 
-    public WeatherCityService() {
+    public WeatherOneDayService() {
     }
 
     public void requestWeatherData(String cityName, String countryISOCode, OnDataResponse delegate) {

@@ -11,6 +11,10 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
+    <string name="menu_Weather_One_Day">Weather One Day</string>
+    <string name="menu_galry">Gallery</string>
+    <string name="menu_slidhow">Slideshow</string>
+
     <!-- el tiempo -->
     <string name="weather">Clima</string>
     <string name="country_iso_code">Código ISO del País :</string>
