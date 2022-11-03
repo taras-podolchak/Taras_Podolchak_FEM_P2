@@ -3,7 +3,9 @@ package com.example.taras_podolchak_fem_p2.pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Wind {
+import java.io.Serializable;
+
+public class Wind implements Serializable {
     @SerializedName("speed")
     @Expose
     private Double speed;

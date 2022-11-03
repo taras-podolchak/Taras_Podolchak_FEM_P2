@@ -1,6 +1,6 @@
 package com.example.taras_podolchak_fem_p2.service;
 
-import com.example.taras_podolchak_fem_p2.pojo.List;
+import com.example.taras_podolchak_fem_p2.pojo.Lists;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,23 +35,23 @@ public class WeatherOneDayService {
         URLSession.getShared().dataTask(components.getURL(), (data, response, error) -> {
             HTTPURLResponse resp = (HTTPURLResponse) response;
 
-            List list = null;
+            Lists lists = null;
             int statusCode = -1;
             if (error == null && resp.getStatusCode() == 200) {
                 String text = data.toText();
                 GsonBuilder gsonBuilder = new GsonBuilder();
                 gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
                 Gson gson = gsonBuilder.create();
-                list = gson.fromJson(text, List.class);
+                lists = gson.fromJson(text, Lists.class);
                 statusCode = resp.getStatusCode();
             }
             if (delegate != null) {
-                delegate.onChange(error != null, statusCode, list);
+                delegate.onChange(error != null, statusCode, lists);
             }
         }).resume();
     }
 
     public interface OnDataResponse {
-        public abstract void onChange(boolean isNetworkError, int statusCode, List root);
+        public abstract void onChange(boolean isNetworkError, int statusCode, Lists root);
     }
 }

@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.taras_podolchak_fem_p2.R;
-import com.example.taras_podolchak_fem_p2.pojo.List;
+import com.example.taras_podolchak_fem_p2.pojo.Lists;
 import com.example.taras_podolchak_fem_p2.service.WeatherOneDayService;
 
 public class WeatherOneDayFragment extends Fragment {
@@ -70,7 +70,7 @@ public class WeatherOneDayFragment extends Fragment {
         pb_Visibility = view.findViewById(R.id.pb_Visibility);
 
 
-        //getWeatherOneDay();
+        getWeatherOneDay();
 
 
         return view;
@@ -91,17 +91,17 @@ public class WeatherOneDayFragment extends Fragment {
     }
 
     @SuppressLint("NewApi")
-    public void showWeatherInfo(List list) {
-        double temp = list.getMain().getTemp();
-        double feels_like = list.getMain().getFeelsLike();
-        double tempMin = list.getMain().getTempMin();
-        double tempMax = list.getMain().getTempMax();
-        int humidity = list.getMain().getHumidity();
-        int pressure = list.getMain().getPressure();
-        double windSpeed = list.getWind().getSpeed();
-        int windDirection = list.getWind().getDeg();
-        int clouds = list.getClouds().getAll();
-        int visibility = (list.getVisibility() / 100);
+    public void showWeatherInfo(Lists lists) {
+        double temp = lists.getMain().getTemp();
+        double feels_like = lists.getMain().getFeelsLike();
+        double tempMin = lists.getMain().getTempMin();
+        double tempMax = lists.getMain().getTempMax();
+        int humidity = lists.getMain().getHumidity();
+        int pressure = lists.getMain().getPressure();
+        double windSpeed = lists.getWind().getSpeed();
+        int windDirection = lists.getWind().getDeg();
+        int clouds = lists.getClouds().getAll();
+        int visibility = (lists.getVisibility() / 100);
 
         tv_Current.setText(getString(R.string.current) + " " + temp + " °C");
         tv_Feels_like.setText(getString(R.string.se_siente_como) + " " + feels_like + " °C");

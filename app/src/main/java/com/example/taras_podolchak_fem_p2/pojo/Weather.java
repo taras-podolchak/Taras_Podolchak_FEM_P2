@@ -3,7 +3,9 @@ package com.example.taras_podolchak_fem_p2.pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Weather {
+import java.io.Serializable;
+
+public class Weather implements Serializable {
 
     @SerializedName("id")
     @Expose

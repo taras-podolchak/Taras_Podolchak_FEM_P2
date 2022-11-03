@@ -1,4 +1,4 @@
-package com.example.taras_podolchak_fem_p2.ui.WeatherFiveDays;
+package com.example.taras_podolchak_fem_p2.ui.weatherFiveDays;
 
 import android.content.Context;
 import android.os.Bundle;
