@@ -16,9 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.taras_podolchak_fem_p2.R;
-import com.example.taras_podolchak_fem_p2.meteorologia.pojo.Cities;
-import com.example.taras_podolchak_fem_p2.meteorologia.pojo.WeatherList;
-import com.example.taras_podolchak_fem_p2.meteorologia.service.WeatherOneDayService;
+import com.example.taras_podolchak_fem_p2.pojo.List;
+import com.example.taras_podolchak_fem_p2.service.WeatherOneDayService;
 
 public class WeatherOneDayFragment extends Fragment {
 
@@ -43,9 +42,6 @@ public class WeatherOneDayFragment extends Fragment {
     private ImageView iv_WindDirection;
     private ProgressBar pb_Clouds;
     private ProgressBar pb_Visibility;
-
-
-    Cities citiesList;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -74,24 +70,14 @@ public class WeatherOneDayFragment extends Fragment {
         pb_Visibility = view.findViewById(R.id.pb_Visibility);
 
 
-        // getWeatherNearbyAreas();
         getWeatherOneDay();
-        // getWeather5DaysInMadrid();
+
 
         return view;
     }
 
-  /*  private void getWeatherNearbyAreas() {
-        try {
-            citiesList = new WeatherNearbyAreasServise().execute(new ListView[0]).get();
-            // citiesList.getList().ge
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-        }
-    }*/
-
     private void getWeatherOneDay() {
-        new WeatherOneDayService().requestWeatherData("Madrid", "ES", (isNetworkError, statusCode, weatherList) -> {
+        new WeatherOneDayService().requestWeatherOneDay("Madrid", "ES", (isNetworkError, statusCode, weatherList) -> {
             if (!isNetworkError) {
                 if (statusCode == 200) {
                     showWeatherInfo(weatherList);
@@ -104,32 +90,18 @@ public class WeatherOneDayFragment extends Fragment {
         });
     }
 
- /*   private void getWeather5DaysInMadrid() {
-        new WeatherFiveDaysService().requestWeatherData((isNetworkError, statusCode, root) -> {
-            if (!isNetworkError) {
-                if (statusCode == 200) {
-                    // showWeather5DaysInMadrid(root);
-                } else {
-                    Toast.makeText(getContext(), "Weather Service error", Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                Toast.makeText(getContext(), "Weather Network error", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }*/
-
     @SuppressLint("NewApi")
-    public void showWeatherInfo(WeatherList weatherList) {
-        double temp = weatherList.getMain().getTemp();
-        double feels_like = weatherList.getMain().getFeelsLike();
-        double tempMin = weatherList.getMain().getTempMin();
-        double tempMax = weatherList.getMain().getTempMax();
-        int humidity = weatherList.getMain().getHumidity();
-        int pressure = weatherList.getMain().getPressure();
-        double windSpeed = weatherList.getWind().getSpeed();
-        int windDirection = weatherList.getWind().getDeg();
-        int clouds = weatherList.getClouds().getAll();
-        int visibility = (weatherList.getVisibility() / 100);
+    public void showWeatherInfo(List list) {
+        double temp = list.getMain().getTemp();
+        double feels_like = list.getMain().getFeelsLike();
+        double tempMin = list.getMain().getTempMin();
+        double tempMax = list.getMain().getTempMax();
+        int humidity = list.getMain().getHumidity();
+        int pressure = list.getMain().getPressure();
+        double windSpeed = list.getWind().getSpeed();
+        int windDirection = list.getWind().getDeg();
+        int clouds = list.getClouds().getAll();
+        int visibility = (list.getVisibility() / 100);
 
         tv_Current.setText(getString(R.string.current) + " " + temp + " °C");
         tv_Feels_like.setText(getString(R.string.se_siente_como) + " " + feels_like + " °C");
@@ -145,7 +117,7 @@ public class WeatherOneDayFragment extends Fragment {
         pb_Current.setProgress(intToProcent(temp));
         pb_Feels_like.setProgress(intToProcent(feels_like));
         pb_Min.setProgress(intToProcent(tempMin));
-        pb_Max.setProgress(intToProcent(-tempMax));
+        pb_Max.setProgress(intToProcent(tempMax));
         pb_Humidity.setProgress(humidity);
         pb_WindSpeed.setProgress((int) windSpeed);
         rotarFlechaDireccion();

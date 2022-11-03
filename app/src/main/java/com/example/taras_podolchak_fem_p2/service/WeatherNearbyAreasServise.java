@@ -1,10 +1,10 @@
-package com.example.taras_podolchak_fem_p2.meteorologia.service;
+package com.example.taras_podolchak_fem_p2.service;
 
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ListView;
 
-import com.example.taras_podolchak_fem_p2.meteorologia.pojo.Cities;
+import com.example.taras_podolchak_fem_p2.pojo.Cities;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;

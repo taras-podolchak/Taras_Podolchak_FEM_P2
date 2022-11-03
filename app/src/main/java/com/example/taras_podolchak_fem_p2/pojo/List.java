@@ -1,9 +1,9 @@
-package com.example.taras_podolchak_fem_p2.meteorologia.pojo;
+package com.example.taras_podolchak_fem_p2.pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class WeatherList {
+public class List {
 
     @SerializedName("dt")
     @Expose
@@ -25,7 +25,7 @@ public class WeatherList {
     private Integer visibility;
     @SerializedName("pop")
     @Expose
-    private Integer pop;
+    private Double pop;
     @SerializedName("sys")
     @Expose
     private Sys sys;
@@ -81,11 +81,11 @@ public class WeatherList {
         this.visibility = visibility;
     }
 
-    public Integer getPop() {
+    public Double getPop() {
         return pop;
     }
 
-    public void setPop(Integer pop) {
+    public void setPop(Double pop) {
         this.pop = pop;
     }
 
@@ -104,5 +104,4 @@ public class WeatherList {
     public void setDtTxt(String dtTxt) {
         this.dtTxt = dtTxt;
     }
-
 }

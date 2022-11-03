@@ -1,17 +1,24 @@
+package com.example.taras_podolchak_fem_p2.pojo;
 
-package com.example.taras_podolchak_fem_p2.meteorologia.pojo;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class Example {
-
+    @SerializedName("cod")
+    @Expose
     private String cod;
+    @SerializedName("message")
+    @Expose
     private Integer message;
+    @SerializedName("cnt")
+    @Expose
     private Integer cnt;
-    private java.util.List<WeatherList> list = null;
+    @SerializedName("list")
+    @Expose
+    private java.util.List<List> list = null;
+    @SerializedName("city")
+    @Expose
     private City city;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     public String getCod() {
         return cod;
@@ -37,11 +44,11 @@ public class Example {
         this.cnt = cnt;
     }
 
-    public java.util.List<WeatherList> getList() {
+    public java.util.List<List> getList() {
         return list;
     }
 
-    public void setList(java.util.List<WeatherList> list) {
+    public void setList(java.util.List<List> list) {
         this.list = list;
     }
 
@@ -52,13 +59,4 @@ public class Example {
     public void setCity(City city) {
         this.city = city;
     }
-
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
 }

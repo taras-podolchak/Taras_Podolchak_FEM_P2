@@ -1,5 +1,4 @@
-
-package com.example.taras_podolchak_fem_p2.meteorologia.pojo;
+package com.example.taras_podolchak_fem_p2.pojo;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +6,7 @@ import java.util.Map;
 public class Rain {
 
     private Double _3h;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private final Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     public Double get3h() {
         return _3h;

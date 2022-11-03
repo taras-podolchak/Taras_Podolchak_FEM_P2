@@ -1,6 +1,6 @@
-package com.example.taras_podolchak_fem_p2.meteorologia.service;
+package com.example.taras_podolchak_fem_p2.service;
 
-import com.example.taras_podolchak_fem_p2.meteorologia.pojo.WeatherList;
+import com.example.taras_podolchak_fem_p2.pojo.List;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -18,7 +18,7 @@ public class WeatherOneDayService {
     public WeatherOneDayService() {
     }
 
-    public void requestWeatherData(String cityName, String countryISOCode, OnDataResponse delegate) {
+    public void requestWeatherOneDay(String cityName, String countryISOCode, OnDataResponse delegate) {
         URL url = null;
         URLComponents components = new URLComponents();
         components.setScheme("https");
@@ -35,23 +35,23 @@ public class WeatherOneDayService {
         URLSession.getShared().dataTask(components.getURL(), (data, response, error) -> {
             HTTPURLResponse resp = (HTTPURLResponse) response;
 
-            WeatherList weatherList = null;
+            List list = null;
             int statusCode = -1;
             if (error == null && resp.getStatusCode() == 200) {
                 String text = data.toText();
                 GsonBuilder gsonBuilder = new GsonBuilder();
                 gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
                 Gson gson = gsonBuilder.create();
-                weatherList = gson.fromJson(text, WeatherList.class);
+                list = gson.fromJson(text, List.class);
                 statusCode = resp.getStatusCode();
             }
             if (delegate != null) {
-                delegate.onChange(error != null, statusCode, weatherList);
+                delegate.onChange(error != null, statusCode, list);
             }
         }).resume();
     }
 
     public interface OnDataResponse {
-        public abstract void onChange(boolean isNetworkError, int statusCode, WeatherList root);
+        public abstract void onChange(boolean isNetworkError, int statusCode, List root);
     }
 }

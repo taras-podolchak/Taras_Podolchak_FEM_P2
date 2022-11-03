@@ -1,17 +1,18 @@
-
-package com.example.taras_podolchak_fem_p2.meteorologia.pojo;
+package com.example.taras_podolchak_fem_p2.pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Wind {
-
     @SerializedName("speed")
     @Expose
     private Double speed;
     @SerializedName("deg")
     @Expose
     private Integer deg;
+    @SerializedName("gust")
+    @Expose
+    private Double gust;
 
     public Double getSpeed() {
         return speed;
@@ -29,6 +30,11 @@ public class Wind {
         this.deg = deg;
     }
 
+    public Double getGust() {
+        return gust;
+    }
 
-
+    public void setGust(Double gust) {
+        this.gust = gust;
+    }
 }
