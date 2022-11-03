@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_weather_One_Day">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.taras_podolchak_fem_p2.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_weather_One_Day"
+        android:name="com.example.taras_podolchak_fem_p2.ui.weatherOneDay.WeatherOneDayFragment"
+        android:label="@string/menu_Weather_One_Day"
+        tools:layout="@layout/fragment_weather_one_day" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.taras_podolchak_fem_p2.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_weather_Five_Days"
+        android:name="com.example.taras_podolchak_fem_p2.ui.WeatherFiveDays.WeatherFiveDaysFragment"
+        android:label="@string/menu_Weather_Five_Days"
+        tools:layout="@layout/fragment_weather_five_days" />
 
     <fragment
         android:id="@+id/nav_slideshow"
