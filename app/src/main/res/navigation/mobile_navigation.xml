@@ -22,4 +22,14 @@
         android:name="com.example.taras_podolchak_fem_p2.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.taras_podolchak_fem_p2.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.example.taras_podolchak_fem_p2.ui.login.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
 </navigation>

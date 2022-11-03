@@ -5,16 +5,20 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_weather_One_Day"
+            android:id="@+id/weather_One_Day"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_Weather_One_Day" />
         <item
-            android:id="@+id/nav_weather_Five_Days"
+            android:id="@+id/weather_Five_Days"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_Weather_Five_Days" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/slideshow"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/cerrar_session"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/cerrar_session" />
     </group>
 </menu>
