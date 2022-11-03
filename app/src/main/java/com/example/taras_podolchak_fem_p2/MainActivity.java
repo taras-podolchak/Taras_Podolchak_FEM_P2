@@ -3,25 +3,30 @@ package com.example.taras_podolchak_fem_p2;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.taras_podolchak_fem_p2.databinding.ActivityMainBinding;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private NavController navController;
+
+    private final FirebaseAuth fba = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +46,14 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                 R.id.nav_weather_One_Day, R.id.nav_weather_Five_Days, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        NavigationView mNavigationView = findViewById(R.id.nav_view);
+        if (mNavigationView != null) {
+            mNavigationView.setNavigationItemSelectedListener(this);
+        }
     }
 
     @Override
@@ -61,14 +71,33 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.nav_weather_One_Day) {
+        if (id == R.id.weather_One_Day) {
             navController.navigate(R.id.nav_weather_One_Day);
         }
-        if (id == R.id.nav_weather_Five_Days) {
-            navController.navigate(R.id.nav_weather_One_Day);
+        if (id == R.id.weather_Five_Days) {
+            FirebaseUser currentUser = fba.getCurrentUser();
+            if (currentUser != null)
+                navController.navigate(R.id.nav_weather_Five_Days);
+            else {
+                Toast.makeText(this, "Inicie la sesion por favor", Toast.LENGTH_SHORT).show();
+                navController.navigate(R.id.nav_login);
+            }
         }
-        return false;
+        if (id == R.id.cerrar_session) {
+            navController.navigate(R.id.nav_weather_One_Day);
+            Toast.makeText(getApplicationContext(), "Cerramos la sesion", Toast.LENGTH_SHORT).show();
+            fba.signOut();
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

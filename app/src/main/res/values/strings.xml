@@ -40,4 +40,18 @@
     <string name="viento">Viento</string>
     <string name="nubes">Nubes</string>
     <string name="humedad">Humedad</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="recordarme">Recordarme</string>
+    <string name="olvidaste_tu_contrase_a">¿Olvidaste tu contraseña?</string>
+    <string name="iniciar_sesion">Iniciar sesion</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="volver">Volver</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="aceptacion_de_condiciones">Aceptacion de condiciones</string>
+    <string name="cerrar_session">Cerrar session</string>
 </resources>
