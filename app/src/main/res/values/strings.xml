@@ -28,10 +28,16 @@
     <string name="minimum">Mínima :</string>
     <string name="maximum">Máxima :</string>
     <string name="presion">Presión :</string>
-    <string name="humedad">Humedad :</string>
+    <string name="humedadd">Humedad :</string>
     <string name="velocidad">Velocidad :</string>
     <string name="dirección">Dirección :</string>
-    <string name="nubes">Nubes :</string>
+    <string name="nubess">Nubes :</string>
     <string name="visibilidad">Visibilidad :</string>
     <string name="Fields_cannot_be_empty">Los campos no pueden ser vacíos</string>
+
+    <string name="date">Fecha</string>
+    <string name="temp">Temp</string>
+    <string name="viento">Viento</string>
+    <string name="nubes">Nubes</string>
+    <string name="humedad">Humedad</string>
 </resources>

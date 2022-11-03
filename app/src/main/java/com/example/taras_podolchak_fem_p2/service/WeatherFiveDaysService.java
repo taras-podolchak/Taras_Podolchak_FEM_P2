@@ -25,7 +25,7 @@ public class WeatherFiveDaysService extends AsyncTask<ListView, Void, Example> {
         Example example = new Example();
 
         try {
-            URL url = new URL("https://api.openweathermap.org/data/2.5/forecast?q=Madrid&appid=a9cf0f7a3cc84a884d84d4df48f057c2");
+            URL url = new URL("https://api.openweathermap.org/data/2.5/forecast?q=Madrid&units=metric&lang=es&appid=a9cf0f7a3cc84a884d84d4df48f057c2");
             httpURLConnection = (HttpURLConnection) url.openConnection();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
             Gson gson = new Gson();

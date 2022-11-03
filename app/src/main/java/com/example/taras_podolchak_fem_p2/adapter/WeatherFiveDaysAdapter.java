@@ -1,14 +1,12 @@
 package com.example.taras_podolchak_fem_p2.adapter;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -16,10 +14,14 @@ import androidx.annotation.RequiresApi;
 import com.example.taras_podolchak_fem_p2.R;
 import com.example.taras_podolchak_fem_p2.pojo.Example;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class WeatherFiveDaysAdapter extends BaseAdapter {
 
-    private Context context;
-    private Example example;
+    private final Context context;
+    private final Example example;
 
     public WeatherFiveDaysAdapter(Context context, Example example) {
         this.context = context;
@@ -28,11 +30,12 @@ public class WeatherFiveDaysAdapter extends BaseAdapter {
     }
 
     public static class ViewHolder {
-        TextView textViewId01;
-        TextView textViewId02;
-        TextView textViewCity;
-        ProgressBar textViewCitssy01;
-        ProgressBar textViewCitssy02;
+        TextView tv_Date;
+        TextView tv_Current;
+        TextView tv_WindSpeed;
+        TextView tv_Clouds;
+        TextView tv_Humidity;
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.P)
@@ -44,34 +47,27 @@ public class WeatherFiveDaysAdapter extends BaseAdapter {
         if (convertView == null) {
             vh = new ViewHolder();
             view = LayoutInflater.from(context).inflate(R.layout.fragment_weather_five_days_item, parent, false);
-            vh.textViewId01 = view.findViewById(R.id.textViewId01);
-            vh.textViewId02 = view.findViewById(R.id.textViewId02);
-            vh.textViewCitssy01 = view.findViewById(R.id.textViewCitssy01);
-            vh.textViewCitssy02 = view.findViewById(R.id.textViewCitssy02);
-            vh.textViewCity = view.findViewById(R.id.textViewCity);
+            vh.tv_Date = view.findViewById(R.id.tv_Date);
+            vh.tv_Current = view.findViewById(R.id.tv_Current);
+            vh.tv_WindSpeed = view.findViewById(R.id.tv_WindSpeed);
+            vh.tv_Clouds = view.findViewById(R.id.tv_Clouds);
+            vh.tv_Humidity = view.findViewById(R.id.tv_Humidity);
             view.setTag(vh);
         } else {
             vh = (ViewHolder) convertView.getTag();
         }
 
-        vh.textViewCity.setText(example.getList().get(position).getDtTxt());
-        double dTemp = example.getList().get(position).getMain().getTemp() - 273.15;
-        int dTempRoundOff = (int) (Math.round(dTemp * 100) / 100);
-        Integer oiHumidPerc = example.getList().get(position).getMain().getHumidity();
+        vh.tv_Date.setText(formatDate(example.getList().get(position).getDtTxt()));
+        vh.tv_Current.setText(Math.round(example.getList().get(position).getMain().getTemp()) +" °C");
+        vh.tv_WindSpeed.setText(example.getList().get(position).getWind().getSpeed() +" km/h");
+        vh.tv_Clouds.setText(example.getList().get(position).getClouds().getAll() +" %");
+        vh.tv_Humidity.setText(example.getList().get(position).getMain().getHumidity() +" %");
 
-        vh.textViewId01.setText("Temp: " + dTempRoundOff + "°C");
-        vh.textViewId02.setText("Humed: " + oiHumidPerc.intValue() + "%");
-        vh.textViewCitssy01.setProgress(dTempRoundOff);
-        vh.textViewCitssy02.setProgress(oiHumidPerc);
-        vh.textViewCitssy01.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
-        vh.textViewCitssy02.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
-        if (dTempRoundOff < 20)
-            vh.textViewCitssy01.setProgressTintList(ColorStateList.valueOf(Color.BLUE));
-        if (dTempRoundOff > 35)
-            vh.textViewCitssy01.setProgressTintList(ColorStateList.valueOf(Color.RED));
-        if (oiHumidPerc > 50 || oiHumidPerc < 30)
-            vh.textViewCitssy02.setProgressTintList(ColorStateList.valueOf(Color.RED));
         return view;
+    }
+
+    private String formatDate(String time) {
+        return formateDateFromstring(time);
     }
 
 
@@ -90,5 +86,18 @@ public class WeatherFiveDaysAdapter extends BaseAdapter {
         } else {
             return 0;
         }
+    }
+
+    private String formateDateFromstring(String inputDate) {
+        String outputDate = "";
+        SimpleDateFormat df_input = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", java.util.Locale.getDefault());
+        SimpleDateFormat df_output = new SimpleDateFormat("dd-MMM\nhh:mm", java.util.Locale.getDefault());
+        try {
+            Date parsed = df_input.parse(inputDate);
+            outputDate = df_output.format(parsed);
+        } catch (ParseException e) {
+            Log.e("Date", "ParseException - dateFormat");
+        }
+        return outputDate;
     }
 }

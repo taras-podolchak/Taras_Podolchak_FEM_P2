@@ -70,7 +70,7 @@ public class WeatherOneDayFragment extends Fragment {
         pb_Visibility = view.findViewById(R.id.pb_Visibility);
 
 
-        getWeatherOneDay();
+        //getWeatherOneDay();
 
 
         return view;
