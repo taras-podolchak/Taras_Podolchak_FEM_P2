@@ -1,9 +1,10 @@
 package com.example.taras_podolchak_fem_p2.pojo;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Rain {
+public class Rain implements Serializable {
 
     private Double _3h;
     private final Map<String, Object> additionalProperties = new HashMap<String, Object>();

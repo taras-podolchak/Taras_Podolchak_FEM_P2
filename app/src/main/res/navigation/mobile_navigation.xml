@@ -13,23 +13,21 @@
 
     <fragment
         android:id="@+id/nav_weather_Five_Days"
-        android:name="com.example.taras_podolchak_fem_p2.ui.WeatherFiveDays.WeatherFiveDaysFragment"
+        android:name="com.example.taras_podolchak_fem_p2.ui.weatherFiveDays.WeatherFiveDaysFragment"
         android:label="@string/menu_Weather_Five_Days"
         tools:layout="@layout/fragment_weather_five_days" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.taras_podolchak_fem_p2.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_Weather_Five_Days_Archived"
+        android:name="com.example.taras_podolchak_fem_p2.ui.weatherFiveDaysArchived.WeatherFiveDaysArchivedFragment"
+        android:label="@string/menu_Weather_Five_Days_Archived"
+        tools:layout="@layout/fragment_weather_five_days_archived" />
     <fragment
         android:id="@+id/nav_login"
         android:name="com.example.taras_podolchak_fem_p2.ui.login.LoginFragment"
-        android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/nav_register"
         android:name="com.example.taras_podolchak_fem_p2.ui.login.RegisterFragment"
-        android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
 </navigation>

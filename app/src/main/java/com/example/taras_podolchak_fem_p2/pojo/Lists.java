@@ -3,7 +3,9 @@ package com.example.taras_podolchak_fem_p2.pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class List {
+import java.io.Serializable;
+
+public class Lists implements Serializable {
 
     @SerializedName("dt")
     @Expose
@@ -32,6 +34,8 @@ public class List {
     @SerializedName("dt_txt")
     @Expose
     private String dtTxt;
+
+    public Lists() {super();}
 
     public Integer getDt() {
         return dt;

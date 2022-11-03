@@ -13,12 +13,12 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_Weather_Five_Days" />
         <item
-            android:id="@+id/slideshow"
+            android:id="@+id/weather_Five_Days_Archived"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/menu_Weather_Five_Days_Archived" />
         <item
             android:id="@+id/cerrar_session"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/cerrar_session" />
+            android:title="@string/exit" />
     </group>
 </menu>

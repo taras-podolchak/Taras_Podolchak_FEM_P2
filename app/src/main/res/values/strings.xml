@@ -13,7 +13,7 @@
 
     <string name="menu_Weather_One_Day">Weather One Day</string>
     <string name="menu_Weather_Five_Days">Weather Five Days</string>
-    <string name="menu_slidhow">Slideshow</string>
+    <string name="menu_Weather_Five_Days_Archived">Weather Five Days Archived</string>
 
     <!-- el tiempo -->
     <string name="weather">Clima</string>
@@ -53,5 +53,5 @@
     <string name="volver">Volver</string>
     <string name="aceptar">Aceptar</string>
     <string name="aceptacion_de_condiciones">Aceptacion de condiciones</string>
-    <string name="cerrar_session">Cerrar session</string>
+    <string name="exit">Exit</string>
 </resources>

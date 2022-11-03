@@ -3,7 +3,9 @@ package com.example.taras_podolchak_fem_p2.pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Example {
+import java.io.Serializable;
+
+public class Example implements Serializable {
     @SerializedName("cod")
     @Expose
     private String cod;
@@ -15,7 +17,7 @@ public class Example {
     private Integer cnt;
     @SerializedName("list")
     @Expose
-    private java.util.List<List> list = null;
+    private java.util.List<Lists> lists = null;
     @SerializedName("city")
     @Expose
     private City city;
@@ -44,12 +46,12 @@ public class Example {
         this.cnt = cnt;
     }
 
-    public java.util.List<List> getList() {
-        return list;
+    public java.util.List<Lists> getList() {
+        return lists;
     }
 
-    public void setList(java.util.List<List> list) {
-        this.list = list;
+    public void setList(java.util.List<Lists> lists) {
+        this.lists = lists;
     }
 
     public City getCity() {

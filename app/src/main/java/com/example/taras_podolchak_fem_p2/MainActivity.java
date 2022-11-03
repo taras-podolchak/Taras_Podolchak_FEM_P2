@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_weather_One_Day, R.id.nav_weather_Five_Days, R.id.nav_slideshow)
+                R.id.nav_weather_One_Day, R.id.nav_weather_Five_Days, R.id.nav_Weather_Five_Days_Archived)
                 .setOpenableLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -85,6 +85,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             FirebaseUser currentUser = fba.getCurrentUser();
             if (currentUser != null)
                 navController.navigate(R.id.nav_weather_Five_Days);
+            else {
+                Toast.makeText(this, "Inicie la sesion por favor", Toast.LENGTH_SHORT).show();
+                navController.navigate(R.id.nav_login);
+            }
+        }
+        if (id == R.id.weather_Five_Days_Archived) {
+            FirebaseUser currentUser = fba.getCurrentUser();
+            if (currentUser != null)
+                navController.navigate(R.id.nav_Weather_Five_Days_Archived);
             else {
                 Toast.makeText(this, "Inicie la sesion por favor", Toast.LENGTH_SHORT).show();
                 navController.navigate(R.id.nav_login);

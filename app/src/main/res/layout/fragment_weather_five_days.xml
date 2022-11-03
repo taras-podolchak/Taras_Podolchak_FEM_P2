@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
     android:orientation="vertical"
-    tools:context=".ui.WeatherFiveDays.WeatherFiveDaysFragment">
+    tools:context=".ui.weatherFiveDays.WeatherFiveDaysFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,35 +20,40 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/date" />
+            android:text="@string/date"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/temp" />
+            android:text="@string/temp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/viento" />
+            android:text="@string/viento"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/nubes" />
+            android:text="@string/nubes"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/humedad" />
+            android:text="@string/humedad"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
